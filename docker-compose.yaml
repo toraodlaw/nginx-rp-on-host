@@ -1,0 +1,30 @@
+services:
+  app1:
+    build: ./app1-python
+    container_name: app1-python
+    ports:
+      - "9001:9001"
+    restart: unless-stopped
+    networks:
+      - network_proxy
+
+  app2:
+    build: ./app2-node
+    container_name: app2-node
+    ports:
+      - "9002:9002"
+    restart: unless-stopped
+    networks:
+      - network_proxy
+
+  app3:
+    build: ./app3-php
+    container_name: app3-php
+    ports:
+      - "9003:9003"
+    restart: unless-stopped
+    networks:
+      - network_proxy
+
+networks:
+  network_proxy:
